@@ -1,8 +1,8 @@
 package rossi1;
 public class palindrome
 {
-public static void main(String[] args) {
-
+static void main(String[] args) {
+public 
     int num = 121, reversedInteger = 0, remainder, originalInteger;
 
     originalInteger = num;

@@ -4,7 +4,7 @@ public class marks
 {
 	public static void main(String args[])throws IOException
 			{
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 				System.out.println("Enter the marks of three subjects");
 		int sub1 = Integer.parseInt(br.readLine());
 	int sub2 = Integer.parseInt(br.readLine());
@@ -18,7 +18,7 @@ public class marks
 		System.out.println("Promoted");
 	}
 	else
-	{
+	{	BufferedReader
 		System.out.println("Failed");
 	}
 

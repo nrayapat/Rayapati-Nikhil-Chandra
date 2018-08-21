@@ -11,8 +11,8 @@ void compound(double p, double r,double t)
 {
 double i =p * Math.pow((1 + r*0.01), t);
 i=i-p;
-System.out.println("The compound Intrest is" +i);
-
+.println("The compound Intrest is" +i);
+System.out
 
 }
 }
