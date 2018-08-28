@@ -1,32 +1,71 @@
-package com.capgemini.icici.domain;
-
+package com.capgemini.day5.domain;
+import com.capgemini.day5.exception.LowBalanceException;
 public class BankAccount {
-	
+
 	private long accId;
 	private String accHolderName;
 	private String accType;
 	private double balance;
-	
-	public static final String BANK_NAME = "ICICI Bank";
-	private static long totalAccounts;
-		
+	private DebitCard debitCard;
+
 	public BankAccount() {
-		totalAccounts++;
+		super();
 	}
-	
-	public BankAccount(long accId, String accHolderName, String accType, double balance) {
+
+	public BankAccount(long accId, String accHolderName, String accType, double balance, DebitCard debitCard) {
+		super();
 		this.accId = accId;
 		this.accHolderName = accHolderName;
 		this.accType = accType;
 		this.balance = balance;
-		totalAccounts++;
+		this.debitCard = debitCard;
 	}
-	
-	public double withdraw(double amount) {
+
+	public long getAccId() {
+		return accId;
+	}
+
+	public void setAccId(long accId) {
+		this.accId = accId;
+	}
+
+	public String getAccHolderName() {
+		return accHolderName;
+	}
+
+	public void setAccHolderName(String accHolderName) {
+		this.accHolderName = accHolderName;
+	}
+
+	public String getAccType() {
+		return accType;
+	}
+
+	public void setAccType(String accType) {
+		this.accType = accType;
+	}
+
+	public double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
+	public DebitCard getDebitCard() {
+		return debitCard;
+	}
+
+	public void setDebitCard(DebitCard debitCard) {
+		this.debitCard = debitCard;
+	}
+
+	public double withdraw(double amount) throws LowBalanceException {
 		if(balance - amount >= 0)
 			balance = balance - amount;
 		else
-			System.out.println("You don't have sufficient balance.");
+			throw new LowBalanceException("You don't have sufficient fund.");
 		return balance;
 	}
 	
@@ -34,17 +73,4 @@ public class BankAccount {
 		balance = balance + amount;
 		return balance;
 	}
-	
-	public double getBalance() {
-		return balance;
-	}
-	
-	public void displayBankAccountDetails() {
-		System.out.println("Account Id : " + accId + "\nAccount holder name: " + accHolderName +  
-				"\nAccount type: " + accType + "\nAccount balance: " + balance);
-	} 
-	
-	public static long totalBankAccounts() {
-		return totalAccounts;
-	}
-}
+} 
